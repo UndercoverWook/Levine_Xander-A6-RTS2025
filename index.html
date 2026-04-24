@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application 6 Real-Time System Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+      background: #f6f7fb;
+      color: #222;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      color: #1f3b73;
+    }
+
+    iframe {
+      width: 100%;
+      height: 430px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e6ecff;
+      color: #1f3b73;
+      padding: 6px 10px;
+      border-radius: 20px;
+      margin: 4px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Application 6: Real-Time System Prototype</h1>
+
+    <p>
+      This project is a Wokwi-based ESP32 FreeRTOS prototype for a Lockheed Martin style
+      pilot training simulator safety monitor. The system uses real-time scheduling to read a
+      simulated sensor, update safety LEDs, handle an emergency stop interrupt, and send diagnostic
+      output through UART.
+    </p>
+
+    <p>
+      The main goal is to prove that hard real-time tasks, such as sensor monitoring and emergency
+      stop handling, complete before their deadlines. The project uses FreeRTOS tasks, an ISR,
+      queues, semaphores, mutexes, and logic analyzer VCD output to demonstrate predictable timing.
+    </p>
+
+    <h2>Demo Video</h2>
+
+    <iframe
+      src="https://youtu.be/fAKH_EsANBM"
+      title="Application 6 Demo Video"
+      allowfullscreen>
+    </iframe>
+
+    <h2>Key Features</h2>
+    <span class="tag">ESP32</span>
+    <span class="tag">FreeRTOS</span>
+    <span class="tag">Wokwi</span>
+    <span class="tag">ISR</span>
+    <span class="tag">Queues</span>
+    <span class="tag">Semaphores</span>
+    <span class="tag">Mutexes</span>
+    <span class="tag">Hard Real-Time</span>
+
+    <h2>Timing Summary</h2>
+    <ul>
+      <li>SensorTask: hard task, 50 ms period</li>
+      <li>ActuatorTask: hard task, 50 ms period</li>
+      <li>SafetyTask: hard ISR-driven task, 20 ms deadline</li>
+      <li>CommsTask: soft task, 500 ms period</li>
+      <li>HeartbeatTask: soft task, 250 ms period</li>
+    </ul>
+  </div>
+</body>
+</html>
